@@ -1,17 +1,33 @@
-<script setup>
-    export default
-import personaje from './components/ListaPersonaje/personaje.vue'
-import lista from './components/ListaPersonaje/lista.vue'
+<script>
+import Personaje from './personaje.vue';
+import Lista from './lista.vue';
 
-
+export default {
+    data() {
+        return {}
+    },
+    props: {
+        jedi: {
+            type: Object
+        },
+        id: {
+            type: Number
+        }
+    },
+    components: { Personaje, Lista },
+    methods: {
+        started(){
+           console.log("chau")
+        }
+    }
+}
 </script>
 
 <template>
     <header>
-        <div class="wrapper">
-            <personaje :id="1"></personaje>
-            <lista :personaje="jedi" />
-            <personaje :id="2" />
+        <div>
+            <Personaje :sending-start="started" :id=id />
+
         </div>
     </header>
 

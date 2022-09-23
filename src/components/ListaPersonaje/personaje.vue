@@ -12,11 +12,17 @@ export default {
                 eyeColor: null,
                 birthYear: null,
                 gender: null
-            }
+            },
         }
     },
+    props: {
+        id: {
+            type: Number
+        }
+    },
+    emits: ['sending-start'],
     methods: {
-        obtenerNombre(id) {
+        buscarPersonaje(id) {
             fetch(`https://swapi.dev/api/people/${id}`)
                 .then(response => response.json())
                 .then(data => {
@@ -29,20 +35,17 @@ export default {
                         this.jedi.birthYear = data.birth_year,
                         this.jedi.gender = data.gender
                 });
-        }
-
-    },
-    props:
-    {
-        id: {
-            type: Number
+        },
+        sendData(){
+           this.$emit('sending-start')
         }
     },
 }
 </script>
     
 <template>
-    <span>
-        {{obtenerNombre(id)}}
+    <span >
+        <button v-on:click='sendData'>Hola</button>
+        {{buscarPersonaje(id)}}
     </span>
 </template>

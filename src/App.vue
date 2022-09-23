@@ -1,5 +1,5 @@
 <script setup>
-import personaje from './components/ListaPersonaje/personaje.vue'
+import componentePersonaje from './components/ListaPersonaje/ComponentePersonaje.vue'
 import lista from './components/ListaPersonaje/lista.vue'
 
 
@@ -7,9 +7,9 @@ import lista from './components/ListaPersonaje/lista.vue'
 
 <template>
   <header>
-    <!-- <div class="wrapper">
-      <personaje :id="1"></personaje>
-      <lista :personaje="jedi" />
+    <!-- <div class="wrapper"> -->
+      <componentePersonaje :id=1></componentePersonaje> -->
+      <!-- <lista :personaje="jedi" />
       <personaje :id="2" />
     </div> -->
   </header>
