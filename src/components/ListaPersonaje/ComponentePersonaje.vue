@@ -4,20 +4,24 @@ import Lista from './lista.vue';
 
 export default {
     data() {
-        return {}
+        return {
+            idPersonaje: null,
+            personaje: {},
+        }
     },
     props: {
-        jedi: {
-            type: Object
-        },
         id: {
             type: Number
         }
     },
     components: { Personaje, Lista },
     methods: {
-        started(){
-           console.log("chau")
+        obtener(personaje) {
+            this.personaje = personaje
+        },
+        bindearId() {
+            this.$props.id = this.$attrs.idPersonaje
+            console.log(this.$attrs.idPersonaje)
         }
     }
 }
@@ -25,9 +29,9 @@ export default {
 
 <template>
     <header>
-        <div>
-            <Personaje :sending-start="started" :id=id />
-
+        <div>{{bindearId()}}
+            <Personaje @obtener-personaje="obtener" :id=id />
+            <Lista :personaje="this.personaje" />
         </div>
     </header>
 

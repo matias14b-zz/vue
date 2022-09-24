@@ -1,17 +1,14 @@
 <script setup>
 import componentePersonaje from './components/ListaPersonaje/ComponentePersonaje.vue'
 import lista from './components/ListaPersonaje/lista.vue'
+import BuscadorPersonaje from './components/buscadorPersonaje/buscadorPersonaje.vue';
 
 
 </script>
 
 <template>
   <header>
-    <!-- <div class="wrapper"> -->
-      <componentePersonaje :id=1></componentePersonaje> -->
-      <!-- <lista :personaje="jedi" />
-      <personaje :id="2" />
-    </div> -->
+    <BuscadorPersonaje></BuscadorPersonaje>
   </header>
 
   <main>

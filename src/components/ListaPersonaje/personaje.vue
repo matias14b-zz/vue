@@ -20,7 +20,7 @@ export default {
             type: Number
         }
     },
-    emits: ['sending-start'],
+    emits: ['obtenerPersonaje'],
     methods: {
         buscarPersonaje(id) {
             fetch(`https://swapi.dev/api/people/${id}`)
@@ -36,16 +36,16 @@ export default {
                         this.jedi.gender = data.gender
                 });
         },
-        sendData(){
-           this.$emit('sending-start')
+        sendData() {
+            this.$emit('obtenerPersonaje',this.jedi)
         }
     },
 }
 </script>
     
 <template>
-    <span >
-        <button v-on:click='sendData'>Hola</button>
+    <span>
+        {{sendData()}}
         {{buscarPersonaje(id)}}
     </span>
 </template>

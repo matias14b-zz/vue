@@ -9,18 +9,12 @@ export default {
             type: Object
         }
     },
-    methods: {
-        obtener() {
-            console.log(Personaje)
-        }
-    },
     components: { Personaje }
 }
 </script>
 
 <template>
     <ul>
-        <Personaje @hola="obtener"></Personaje>
         <li v-for="(value, key) in personaje">
             {{key}}: {{ value }}
         </li>
