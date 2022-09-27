@@ -3,22 +3,26 @@
 export default {
     data() {
         return {
-            jedi: {
-                name: null,
-                height: null,
-                mass: null,
-                hairColor: null,
-                skinColor: null,
-                eyeColor: null,
-                birthYear: null,
-                gender: null
-            },
+
         }
     },
     props: {
         id: {
             type: Number
-        }
+        },
+        jedi: {
+
+        },
+    },
+    personaje: {
+        name: null,
+        height: null,
+        mass: null,
+        hairColor: null,
+        skinColor: null,
+        eyeColor: null,
+        birthYear: null,
+        gender: null
     },
     emits: ['obtenerPersonaje'],
     methods: {
@@ -26,18 +30,18 @@ export default {
             fetch(`https://swapi.dev/api/people/${id}`)
                 .then(response => response.json())
                 .then(data => {
-                    this.jedi.name = data.name;
-                    this.jedi.height = data.height,
-                        this.jedi.mass = data.mass,
-                        this.jedi.hairColor = data.hair_color,
-                        this.jedi.skinColor = data.skin_color,
-                        this.jedi.eyeColor = data.eye_color,
-                        this.jedi.birthYear = data.birth_year,
-                        this.jedi.gender = data.gender
+                    this.$options.personaje.name = data.name;
+                    this.$options.personaje.height = data.height,
+                    this.$options.personaje.mass = data.mass,
+                    this.$options.personaje.hairColor = data.hair_color,
+                    this.$options.personaje.skinColor = data.skin_color,
+                    this.$options.personaje.eyeColor = data.eye_color,
+                    this.$options.personaje.birthYear = data.birth_year,
+                    this.$options.personaje.gender = data.gender
                 });
         },
         sendData() {
-            this.$emit('obtenerPersonaje',this.jedi)
+            this.$emit('obtenerPersonaje', this.$options.personaje)
         }
     },
 }

@@ -1,5 +1,7 @@
 <script>
 import Personaje from './personaje.vue';
+
+
 export default {
     data() {
         return {};
@@ -14,9 +16,13 @@ export default {
 </script>
 
 <template>
-    <ul>
-        <li v-for="(value, key) in personaje">
-            {{key}}: {{ value }}
-        </li>
-    </ul>
+    <div>
+        <div class="card">
+            <ul class=card-body>
+                <li v-for="(value, key) in personaje" :key="key">
+                    {{key}}: {{ value }}
+                </li>
+            </ul>
+        </div>
+    </div>
 </template>

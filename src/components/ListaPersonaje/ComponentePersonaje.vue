@@ -7,7 +7,11 @@ export default {
         return {
             idPersonaje: null,
             personaje: {},
+            listaPersonaje: []
         }
+    },
+    personaje: {
+        type: Object
     },
     props: {
         id: {
@@ -17,11 +21,14 @@ export default {
     components: { Personaje, Lista },
     methods: {
         obtener(personaje) {
-            this.personaje = personaje
+            this.$options.personaje = personaje
         },
         bindearId() {
             this.$props.id = this.$attrs.idPersonaje
             console.log(this.$attrs.idPersonaje)
+        },
+        agregarALista(personaje){
+            this.listaPersonaje.push(personaje);
         }
     }
 }
@@ -29,9 +36,9 @@ export default {
 
 <template>
     <header>
-        <div>{{bindearId()}}
+        <div> {{bindearId()}}
             <Personaje @obtener-personaje="obtener" :id=id />
-            <Lista :personaje="this.personaje" />
+            <Lista :personaje="this.$options.personaje" />
         </div>
     </header>
 

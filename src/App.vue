@@ -2,7 +2,8 @@
 import componentePersonaje from './components/ListaPersonaje/ComponentePersonaje.vue'
 import lista from './components/ListaPersonaje/lista.vue'
 import BuscadorPersonaje from './components/buscadorPersonaje/buscadorPersonaje.vue';
-
+import 'bootstrap'; 
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
 
 </script>
 

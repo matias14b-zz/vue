@@ -4,26 +4,25 @@ export default {
     data() {
         return {
             id: null,
-            componentePersonaje: [ComponentePersonaje]
         };
     },
     components: { ComponentePersonaje }
     ,
     methods: {
         obtenerId(id) {
-            console.log(id.target.value)
             this.id = id.target.value
         },
-        add(e) {
-
-            this.componentePersonaje.push({ type: ComponentePersonaje});
-        }
     }
 }
 </script>
 <template>
-    <input type="text" @input="obtenerId">
-    <button @click="add">aaaaaaaaaaaaaaaaaaaa</button>
-    <component v-for="element in this.componentePersonaje" :is="element.type" :idPersonaje="this.id" :key="element.id">
-    </component>
+    <div class="d-flex flex-row">
+        <div class="p-2">
+            <input type="text" @input="obtenerId">
+        </div>
+        <div class="p-2">
+            <button class="btn btn-primary" @click="add">Buscar Personaje</button>
+        </div>
+    </div>
+    <ComponentePersonaje :id="this.id"></ComponentePersonaje>
 </template>
