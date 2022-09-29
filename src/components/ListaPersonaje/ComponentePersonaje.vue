@@ -5,9 +5,6 @@ import Lista from './lista.vue';
 export default {
     data() {
         return {
-            idPersonaje: null,
-            personaje: {},
-            listaPersonaje: []
         }
     },
     personaje: {
@@ -15,28 +12,21 @@ export default {
     },
     props: {
         id: {
-            type: Number
+            type: Text
         }
     },
     components: { Personaje, Lista },
     methods: {
-        obtener(personaje) {
-            this.$options.personaje = personaje
+      async obtener(personaje) {
+           this.$options.personaje =  personaje
         },
-        bindearId() {
-            this.$props.id = this.$attrs.idPersonaje
-            console.log(this.$attrs.idPersonaje)
-        },
-        agregarALista(personaje){
-            this.listaPersonaje.push(personaje);
-        }
     }
 }
 </script>
 
 <template>
     <header>
-        <div> {{bindearId()}}
+        <div>
             <Personaje @obtener-personaje="obtener" :id=id />
             <Lista :personaje="this.$options.personaje" />
         </div>

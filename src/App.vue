@@ -9,7 +9,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css'
 
 <template>
   <header>
-    <BuscadorPersonaje></BuscadorPersonaje>
+    <buscador-personaje></buscador-personaje>
   </header>
 
   <main>

@@ -3,14 +3,14 @@ import ComponentePersonaje from '../ListaPersonaje/ComponentePersonaje.vue';
 export default {
     data() {
         return {
-            id: null,
+            idElementosBuscados: []
         };
     },
-    components: { ComponentePersonaje }
-    ,
+    components: { ComponentePersonaje },
     methods: {
-        obtenerId(id) {
-            this.id = id.target.value
+        obtenerId() {
+            let textoInput = document.querySelector(".textoInput").value;
+            this.idElementosBuscados.push({ id: textoInput });
         },
     }
 }
@@ -18,11 +18,11 @@ export default {
 <template>
     <div class="d-flex flex-row">
         <div class="p-2">
-            <input type="text" @input="obtenerId">
-        </div>
-        <div class="p-2">
-            <button class="btn btn-primary" @click="add">Buscar Personaje</button>
+            <input type="text" class="textoInput">
+            <button class="btn btn-primary" @click="obtenerId">Buscar Personaje</button>
         </div>
     </div>
-    <ComponentePersonaje :id="this.id"></ComponentePersonaje>
+    <div v-for="idElemento in idElementosBuscados" :key="idElemento.id">
+        <ComponentePersonaje :id="idElemento.id"></ComponentePersonaje>
+    </div>
 </template>
