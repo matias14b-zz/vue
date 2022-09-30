@@ -16,10 +16,10 @@ export default {
 </script>
 
 <template>
-    <div>
-        <div class="card">
-            <ul class=card-body>
-                <li v-for="(value, key) in personaje" :key="key">
+    <div class="card">
+        <div class=card-body>
+            <ul class="list-group">
+                <li class="list-group-item" v-for="(value, key) in personaje" :key="key">
                     {{key}}: {{ value }}
                 </li>
             </ul>

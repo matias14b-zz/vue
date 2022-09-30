@@ -5,6 +5,7 @@ import Lista from './lista.vue';
 export default {
     data() {
         return {
+            item: {}
         }
     },
     personaje: {
@@ -17,8 +18,8 @@ export default {
     },
     components: { Personaje, Lista },
     methods: {
-      async obtener(personaje) {
-           this.$options.personaje =  personaje
+        async obtener(personaje) {
+            this.item = personaje
         },
     }
 }
@@ -28,7 +29,7 @@ export default {
     <header>
         <div>
             <Personaje @obtener-personaje="obtener" :id=id />
-            <Lista :personaje="this.$options.personaje" />
+            <Lista :personaje="this.item" />
         </div>
     </header>
 
