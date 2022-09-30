@@ -1,11 +1,11 @@
 <script setup>
-import Buscador from './components/buscador/buscador.vue';
+import cuerpo from './components/cuerpo/cuerpo.vue';
 import 'bootstrap';
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 
 </script>
 
 <template>
-    <buscador></buscador>
+    <cuerpo></cuerpo>
 </template>
 

@@ -1,30 +1,33 @@
 <script>
-import ComponentePersonaje from '../ListaPersonaje/ComponentePersonaje.vue';
+import Card from '../contenido/cardPersonaje/card.vue';
+import Dolar from '../contenido/dolar.vue';
 export default {
     data() {
         return {
-            idElementosBuscados: []
+            idElementosBuscados: [],
+            mostrarInformacion: false
         };
     },
-    components: { ComponentePersonaje },
     methods: {
         obtenerId() {
             let textoInput = document.querySelector(".textoInput").value;
             this.idElementosBuscados.push({ id: textoInput });
         },
-    }
+        mostrarInformacion() {
+            this.mostrarInformacion = !this.mostrarInformacion;
+        }
+    },
+    components: { Card, Dolar }
 }
 </script>
 <template>
-
-    <header class="py-3 mb-3 border-bottom">
-        <div class="container-fluid">
-
+    <header class="py-3 mb-3 border-bottom bg-dark text-white">
+        <div class="container-fluid ">
             <div class="d-flex flex-row align-items-center me-3 ">
                 <div class="w-100">
                     <input type="text" class="textoInput form-control">
                 </div>
-                <div>
+                <div class="p-2">
                     <button class="btn btn-primary" @click="obtenerId">Buscar Personaje</button>
                 </div>
             </div>
@@ -40,7 +43,7 @@ export default {
                         <div class="card bg-dark carousel-item active">
                             <div class="card-body">
                                 <div>
-                                    <ComponentePersonaje class="d-block w-100" :id="1"></ComponentePersonaje>
+                                    <Card class="d-block w-100" :id="1"></Card>
                                 </div>
                             </div>
                         </div>
@@ -49,8 +52,18 @@ export default {
                             <div class="card-body">
                                 <div>
                                     <div>
-                                        <ComponentePersonaje class="d-block w-100" :id="idElemento.id">
-                                        </ComponentePersonaje>
+                                        <Card class="d-block w-100" :id="idElemento.id"></Card>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-if="mostrarInformacion" class="card bg-dark carousel-item">
+                            <div class="card-body">
+                                <div>
+                                    <div>
+                                         
+                                         <dolar class="d-block w-100"></dolar>
+
                                     </div>
                                 </div>
                             </div>
@@ -70,4 +83,17 @@ export default {
             </div>
         </div>
     </div>
+
+    <footer class="py-3 mb-3 border-bottom bg-dark text-white">
+        <div class="container-fluid ">
+            <div class="d-flex flex-row align-items-center me-3 ">
+                <div class="w-100">
+                    <input type="text" class="textoInput form-control">
+                </div>
+                <div class="p-2">
+                    <button class="btn btn-primary" @click="mostrarInformacion">Buscar Personaje</button>
+                </div>
+            </div>
+        </div>
+    </footer>
 </template>

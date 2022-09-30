@@ -1,15 +1,12 @@
 <script>
 import Personaje from './personaje.vue';
-import Lista from './lista.vue';
+import Lista from '../lista.vue';
 
 export default {
     data() {
         return {
             item: {}
         }
-    },
-    personaje: {
-        type: Object
     },
     props: {
         id: {
@@ -18,22 +15,18 @@ export default {
     },
     components: { Personaje, Lista },
     methods: {
-        async obtener(personaje) {
-            this.item = personaje
+        async obtenerItem(itemObtenido) {
+            this.item = itemObtenido
         },
     }
 }
 </script>
 
 <template>
-    <header>
-        <div>
-            <Personaje @obtener-personaje="obtener" :id=id />
-            <Lista :personaje="this.item" />
+    <div class="card">
+        <div class=card-body>
+            <Personaje @obtener-personaje="obtenerItem" :id=id />
+            <Lista :lista="this.item" />
         </div>
-    </header>
-
-    <main>
-
-    </main>
+    </div>
 </template>
