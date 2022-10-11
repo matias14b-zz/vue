@@ -1,5 +1,5 @@
 <script>
-import Lista from '../lista.vue';
+import ListaPokemones from './listaPokemones.vue';
 
 export default {
     data() {
@@ -28,7 +28,7 @@ export default {
                 });
         }
     },
-    components: { Lista }
+    components: { ListaPokemones }
 }
 </script>
         
