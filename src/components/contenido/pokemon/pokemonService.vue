@@ -11,14 +11,11 @@ export default {
         id: {
             type: Number
         },
-        url: {
-            type: String
-        },
     },
     emits: ["obtenerPersonaje"],
     methods: {
-        buscarPersonaje(url, id) {
-            fetch(url + id)
+        buscarPersonaje(id) {
+            fetch("https://pokeapi.co/api/v2/pokemon/" + id)
                 .then(response => response.json())
                 .then(data => {
                     this.personaje.name = data.name;
@@ -33,5 +30,5 @@ export default {
 </script>
         
 <template>
-    {{buscarPersonaje(url, id)}}
+    {{buscarPersonaje(id)}}
 </template>

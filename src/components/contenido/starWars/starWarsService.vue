@@ -11,13 +11,10 @@ export default {
         id: {
             type: Number
         },
-        url: {
-            type: String
-        },
     },
     methods: {
-        buscarPersonaje(url, id) {
-            fetch(url + id)
+        buscarPersonaje(id) {
+            fetch("https://swapi.dev/api/people/" + id)
                 .then(response => response.json())
                 .then(data => {
                 this.personaje.name = data.name;
@@ -36,6 +33,6 @@ export default {
 </script>
     
 <template>
-        {{buscarPersonaje(url, id)}}
+        {{buscarPersonaje(id)}}
     <Lista :lista="this.personaje" />
 </template>
