@@ -34,5 +34,4 @@ export default {
         
 <template>
     {{buscarPersonaje(url, id)}}
-
 </template>
