@@ -56,7 +56,7 @@ export default {
                         <div class="card bg-dark carousel-item active">
                             <div class="card-body">
                                 <div>
-                                    <StarWarsService class="d-block w-100" url='https://swapi.dev/api/people/' :id="1"></StarWarsService>
+                                    <StarWarsService class="d-block w-100" :id="1"></StarWarsService>
                                 </div>
                             </div>
                         </div>
@@ -65,21 +65,22 @@ export default {
                             <div class="card-body">
                                 <div>
                                     <div>
-                                        <StarWarsService class="d-block w-100" :url='elemento.url' :id="elemento.id"></StarWarsService>
+                                        <StarWarsService class="d-block w-100" :id="elemento.id"></StarWarsService>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card bg-dark carousel-item" v-for="elemento in pokemonesBuscados"
-                            :key="elemento.id">
+
+                        <div class="card bg-dark carousel-item" v-for="elemento in pokemonesBuscados" :key="elemento.id">
                             <div class="card-body">
                                 <div>
                                     <div>
-                                        <PokemonService class="d-block w-100" :url='elemento.url' :id="elemento.id"></PokemonService>
+                                        <PokemonService class="d-block w-100"  :id="elemento.id"></PokemonService>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"

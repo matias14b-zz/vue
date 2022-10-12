@@ -1,5 +1,5 @@
 <script>
-import ListaPokemones from './listaPokemones.vue';
+import visualizadorPokemon from './visualizadorPokemon.vue';
 
 export default {
     data() {
@@ -12,7 +12,6 @@ export default {
             type: Number
         },
     },
-    emits: ["obtenerPersonaje"],
     methods: {
         buscarPersonaje(id) {
             fetch("https://pokeapi.co/api/v2/pokemon/" + id)
@@ -25,7 +24,7 @@ export default {
                 });
         }
     },
-    components: { ListaPokemones }
+    components: { visualizadorPokemon }
 }
 </script>
         
